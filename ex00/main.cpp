@@ -13,9 +13,8 @@ int main ()
 	vec.push_back(5);
 
 
-
 	std::vector<int>::const_iterator it = easyfind(vec, 2);
-	std::cout << "Found: " << *it << std::endl;
+	std::cout << "Found in vector: " << *it << std::endl;
 
 
 
@@ -29,4 +28,27 @@ int main ()
 	}
 
 	
+	std::cout << std::endl;	
+	
+	// TEST WITH LIST 
+
+	std::list<int> lst;
+
+	lst.push_back(1);
+	lst.push_back(2);
+	lst.push_back(3);
+
+	std::list<int>::const_iterator it_lst = easyfind(lst, 3);
+	std::cout << "Found in List: "  << *it_lst << std::endl;
+
+	try
+	{
+		easyfind(vec, -1212);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+
 }

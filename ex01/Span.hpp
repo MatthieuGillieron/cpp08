@@ -11,9 +11,14 @@ class Span
 
 	private:
 
+			unsigned int maxSize;
+
 
 	public:
-	
+
+			void addNumber();
+			int shortestSpan();
+			int longestSpan();
 
 };
 

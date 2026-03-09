@@ -19,7 +19,14 @@ class Span
 
 	public:
 
-			void addNumber();
+			Span();
+			Span(unsigned int N);
+			Span(const Span &target);
+			~Span();
+
+			Span& operator=(const Span &other);
+
+			void addNumber(int nbr);
 			int shortestSpan();
 			int longestSpan();
 

@@ -5,13 +5,16 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <vector>
+
 
 class Span
 {
 
 	private:
 
-			unsigned int maxSize;
+			unsigned int _maxSize;
+			std::vector<int> _nbr;
 
 
 	public:

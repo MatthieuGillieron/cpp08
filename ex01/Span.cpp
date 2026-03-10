@@ -1,5 +1,4 @@
 #include "Span.hpp"
-#include <execption.hpp>
 
 
 // === CANONICAL FORM === 
@@ -31,27 +30,31 @@ Span &Span::operator=(const Span &other)
 // === METHODE ===
 
 
-void addNumber(int nbr)
+void Span::addNumber(int nbr)
 {
 	if (_nbr.size() == _maxSize)
 	{
 		throw std::out_of_range("Container is full !");
 	}	
 	
-	_nbr.pushback(nbr);
+	_nbr.push_back(nbr);
 }
 
-int shortestSpan(std::vector<int> vec)
+int Span::shortestSpan()
 {
 	
-	
-	std::sort(vec.begin(), vec.end());
-	
-	int shortest = vec[1] - vec[0];
-	
-	for (int i = 1; i < vec.size(); i++)
+	if (_nbr.size() < 2)
 	{
-		int buffer = vec[i] - vec[i -1];
+		throw std::out_of_range("Need to element for compare");
+	}
+
+	std::sort(_nbr.begin(), _nbr.end());
+	
+	int shortest = _nbr[1] - _nbr[0];
+	
+	for (unsigned int i = 1; i < _nbr.size(); i++)
+	{
+		int buffer = _nbr[i] - _nbr[i -1];
 		if (buffer < shortest)
 			shortest = buffer;
 	}
@@ -60,10 +63,15 @@ int shortestSpan(std::vector<int> vec)
 }
 
 
- int longestSpan(std::vector<int> vec)
+ int Span::longestSpan()
 {
-	int min = *std::min_element(vec.begin(), vec.end());
-	int max = *std::max_element(vec.begin(), vec.end());
+	if (_nbr.size() < 2)
+	{
+		throw std::out_of_range("Need to element for compare");
+	}
+
+	int min = *std::min_element(_nbr.begin(), _nbr.end());
+	int max = *std::max_element(_nbr.begin(), _nbr.end());
 
 	return (max - min);
 }

@@ -26,12 +26,19 @@ class Span
 
 			Span& operator=(const Span &other);
 
+			template <typename T>
+			void addListNumber(T begin, T end);
 			void addNumber(int nbr);
 			int shortestSpan();
 			int longestSpan();
 
 };
 
+template <typename T>
+void Span::addListNumber(T begin, T end)
+{
+	_nbr.insert(_nbr.end(), begin, end);
+}
 
 
 #endif

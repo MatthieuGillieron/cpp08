@@ -45,7 +45,7 @@ int Span::shortestSpan()
 	
 	if (_nbr.size() < 2)
 	{
-		throw std::out_of_range("Need to element for compare");
+		throw std::out_of_range("Need 2 element for compare");
 	}
 
 	std::sort(_nbr.begin(), _nbr.end());
@@ -67,7 +67,7 @@ int Span::shortestSpan()
 {
 	if (_nbr.size() < 2)
 	{
-		throw std::out_of_range("Need to element for compare");
+		throw std::out_of_range("Need 2 element for compare");
 	}
 
 	int min = *std::min_element(_nbr.begin(), _nbr.end());
